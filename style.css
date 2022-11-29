@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --body-bg: #ffffff;
+  --number-color: #323238;
+  --icon-primary-color: #323238;
+  --icon-secondary-color: #ffffff;
+  --button-bg: #e1e1e6;
+  --button-forest-bg: #58b15c;
+  --button-rain-bg: #02799d;
+  --button-cafeteria-bg: #b9ae47;
+  --buton-fire-bg: #c05745;
+}
+
+.darkMode:root {
+  --body-bg: #121214;
+  --number-color: #ffffff;
+  --icon-primary-color: #c4c4cc;
+  --icon-secondary-color: #ffffff;
+  --button-bg: #29292e;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: var(--body-bg);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+
+  transition: background 750ms;
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: min(16vw - 4rem, 19.2rem);
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.7rem;
+}
+
+.timer .clock span {
+  font-size: 12.7rem;
+  line-height: 14.8rem;
+  color: var(--number-color);
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 4rem;
+}
+
+.controls button {
+  transition: scale 350ms;
+  cursor: pointer;
+}
+
+.controls button svg path {
+  fill: var(--icon-primary-color);
+}
+
+.controls button:hover {
+  scale: 1.2;
+}
+
+.cards {
+  display: grid;
+  grid-template-areas: 'A B';
+  gap: 3.2rem;
+}
+
+.cards button {
+  width: 13.8rem;
+  height: 15.2rem;
+  background: var(--button-bg);
+  border-radius: 2.4rem;
+  box-shadow: 0 0 2rem var(--icon-primary-color);
+  transition: all 750ms;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.2rem;
+}
+
+.cards button svg {
+  cursor: pointer;
+}
+
+.cards button svg path {
+  fill: var(--icon-primary-color);
+}
+
+.cards button:hover {
+  scale: 1.1;
+}
+
+.cards button.selected svg path {
+  fill: var(--icon-secondary-color);
+}
+
+.cards #btnForest.selected {
+  background: var(--button-forest-bg);
+}
+
+.cards #btnRain.selected {
+  background: var(--button-rain-bg);
+}
+
+.cards #btnCafeteria.selected {
+  background: var(--button-cafeteria-bg);
+}
+
+.cards #btnFire.selected {
+  background: var(--buton-fire-bg);
+}
+
+.darkModeIcon {
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+}
+
+.darkModeIcon button {
+  cursor: pointer;
+}
+
+.darkModeIcon button.hide {
+  display: none;
+}
+
+.sliderContainer {
+  width: 9rem;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 0.4rem;
+  border-radius: 0.5rem;
+  background: var(--icon-primary-color);
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--icon-primary-color);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 1.6rem;
+  height: 1.6rem;
+  background: var(--icon-primary-color);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.cards button.selected .slider,
+.cards button.selected .slider::-webkit-slider-thumb {
+  background: var(--icon-secondary-color);
+}
+
+.cards button.selected .slider::-moz-range-thumb {
+  background: var(--icon-secondary-color);
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .darkModeIcon {
+    top: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .container {
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .timer .clock span {
+    font-size: 10rem;
+    line-height: 14.8rem;
+  }
+
+  .controls {
+    gap: 2.5rem;
+  }
+
+  .cards button {
+    width: 12.4rem;
+    height: 13.7rem;
+  }
+}
